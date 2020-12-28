@@ -1,0 +1,10 @@
+[{
+    "Name" : "khuong",
+    "Age" : "30",
+    "Major" : "CS"
+},
+{
+    "Name" : "nguyen",
+    "Age" : "31",
+    "Major" : "CS"  
+}]

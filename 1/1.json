@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Khuong",
+        "age": "21.5",
+        "major": "cs"
+    },
+    {
+        "name": "nguyen",
+        "age": "22",
+        "major": "ce"
+    },
+    {
+        "name": "Khang",
+        "age": "23",
+        "major": "cs"
+    },
+    {
+        "name": "Truong",
+        "age": "-1",
+        "major": "ce"
+    },
+    {
+        "name": "thien",
+        "age": "25",
+        "major": "cs"
+    },
+    {
+        "name": "viet",
+        "age": "25",
+        "major": "ce"
+    },
+    {
+        "name": "tai",
+        "age": "26",
+        "major": "cs"
+    },
+    {
+        "name": "tri",
+        "age": "27",
+        "major": "ce"
+    }
+]

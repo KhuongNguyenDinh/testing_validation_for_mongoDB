@@ -5,6 +5,7 @@ import re
 from converter import csv_to_json
 from pymongo import MongoClient
 from pprint import pprint
+from utils import *
 
 ###################################################################
 
@@ -21,7 +22,7 @@ special_chars = string.punctuation
 # serverStatusResult=db.command("serverStatus")
 # pprint(serverStatusResult)
 #a = input("which file you want to run? : ")
-class PreChecker():
+class PreChecker_local:
     def _init_(self,csv_path,json_path):
         self.csv_path = csv_path
         self.json_path = json_path
@@ -64,12 +65,21 @@ class PreChecker():
     def check_username(self):
         with open(json_path) as f:
             y = json.load(f)
+        username_set = []
+        username_set = [username_set] + [x["username"] for x in y]
         for x in y:
-            if not isinstance(x["username"],str) or len(x["username"]) < 8:
+            escape = False
+            if username_set.count(x["username"]) >= 2:
+                escape = True
+                print(x["nickname"],"as username:",x["username"],"is already taken!")  
+                continue     
+            if not isinstance(x["username"],str) or len(x["username"]) < 8 or escape == True:
                 if not isinstance (x["username"],str): 
                     print("Invalid username:",x["username"],"is not a string")
                 elif len(x["username"]) < 8:
                     print("Invalid username:",x["username"],"the username has to be at least 8 character")
+                elif y.count(x["username"]) == 2:
+                    print("Invalid username:",x["username"],"has already taken!")
             else:
                 print(x["nickname"],"clean username!")
 
@@ -77,8 +87,11 @@ class PreChecker():
         with open(json_path) as f:
             y = json.load(f)
         for x in y:
-            check_nickname = map(lambda x: x in special_chars, x["password"])
-            print(x["nickname"],"invalid nickname") if any(check_nickname) else print(x["nickname"],"clean nickname")
+            check_password = map(lambda x: x in special_chars, x["password"])
+            if len(x["password"]) < 8 or (anyUpper(x["password"]) == False) or not any(check_password):
+                print(x["nickname"],"invalid password")
+            else:
+                print(x["nickname"],"clean password!")
     
     def check_phone(self):
         with open(json_path) as f:
@@ -122,13 +135,13 @@ class PreChecker():
 
 # # print(json_path)
 # # convert_csv()
-a = PreChecker()
+a = PreChecker_local()
 # a.convert_csv()
 # a.check_nickname()
-# a.check_username()
+a.check_username()
 # a.check_password()
 # a.check_phone()
-a.check_All()
+# a.check_All()
 # a.check_gender()
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")

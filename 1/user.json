@@ -1,8 +1,16 @@
 [
     {
-        "nickname": "krone",
-        "username": "dkhuong",
+        "nickname": "krone1",
+        "username": "dkhuong123",
         "password": "dinhkhuong991",
+        "phone": "0985923594",
+        "email": "dkhuong992810@gmail.com",
+        "gender": "M"
+    },
+    {
+        "nickname": "krone2",
+        "username": "dkhuong123",
+        "password": "@Dinhkhuong991",
         "phone": "0985923594",
         "email": "dkhuong992810@gmail.com",
         "gender": "M"

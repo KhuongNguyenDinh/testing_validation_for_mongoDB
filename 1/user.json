@@ -4,6 +4,23 @@
         "username": "dkhuong",
         "password": "dinhkhuong991",
         "phone": "0985923594",
-        "email": "dkhuong992810@gmail.com"
+        "email": "dkhuong992810@gmail.com",
+        "gender": "M"
+    },
+    {
+        "nickname": "dumm?!y",
+        "username": "dummyuser",
+        "password": "dummypassword",
+        "phone": "0123456789",
+        "email": "dummy@gmail.com",
+        "gender": "F"
+    },
+    {
+        "nickname": "vieth",
+        "username": "viet",
+        "password": "123456",
+        "phone": "0912512152",
+        "email": "viet@gmail.com",
+        "gender": "M"
     }
 ]
